@@ -11,7 +11,7 @@ print("*********STUDENT MANAGEMENT SYSTEM*********")
 
 
 def select():
-    print("Select Any One Of The Following Option \n1. CREATE STUDENT \n 2. READ STUDENT \n 3. UPDATE STUDENT \n 4. "
+    print("Select Any One Of The Following Option \n 1. CREATE STUDENT \n 2. READ STUDENT \n 3. UPDATE STUDENT \n 4. "
           "DELETE STUDENT \n 5. EXIT\n")
     selected = input("Enter Your Option: ")
     if selected == "1":
@@ -26,8 +26,6 @@ def select():
             print("\nStudent Created Successfully!\n")
         except:
             print("\nAn exception occurred\n")
-
-        myDb.close()
         select()
 
     elif selected == "2":
@@ -35,12 +33,11 @@ def select():
         try:
             sql = f"SELECT * FROM students WHERE ID = {studentId}"
             myCursor.execute(sql)
-            myResult = myCursor.fetchone()
-            print(myResult)
+            myresult = myCursor.fetchone()
+            print(myresult)
             myDb.commit()
         except:
             print("\nAn Exception occured!")
-        myDb.close()
         select()
     elif selected == "3":
         studentId = input("Enter The Student Id To Update: ")
@@ -54,7 +51,6 @@ def select():
             print("\nStudent Updated Successfully!\n")
         except:
             print("\nAn Exception occured!")
-        myDb.close()
         select()
 
     elif selected == "4":
@@ -66,8 +62,6 @@ def select():
             print("\nStudent Data deleted Successfully!")
         except:
             print("\nAn Exception occured!")
-
-        myDb.close()
         select()
     else:
         exit()
