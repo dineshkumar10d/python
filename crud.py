@@ -39,6 +39,7 @@ def select():
         except:
             print("\nAn Exception occured!")
         select()
+
     elif selected == "3":
         studentId = input("Enter The Student Id To Update: ")
         name = input("Enter The name: ")
